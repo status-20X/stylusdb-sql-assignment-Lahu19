@@ -163,5 +163,25 @@ function parseInsertQuery(query) {
     values: values.split(",").map((value) => value.trim()),
   };
 }
+function parseDeleteQuery(query) {
+  const deleteRegex = /DELETE FROM (\w+)( WHERE (.*))?/i;
+  const match = query.match(deleteRegex);
 
-module.exports = { parseSelectQuery, parseJoinClause, parseInsertQuery };
+  if (!match) {
+      throw new Error("Invalid DELETE syntax.");
+  }
+
+  const [, table, , whereString] = match;
+  let whereClauses = [];
+  if (whereString) {
+      whereClauses = parseWhereClause(whereString);
+  }
+
+  return {
+      type: 'DELETE',
+      table: table.trim(),
+      whereClauses
+  };
+}
+
+module.exports = { parseSelectQuery, parseJoinClause, parseInsertQuery, parseDeleteQuery };

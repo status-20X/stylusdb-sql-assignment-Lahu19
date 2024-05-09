@@ -523,7 +523,7 @@ test('Parse COUNT Aggregate Query', () => {
         "joinType": null,
         "orderByFields": null,
         "limit": null,
-        isDistinct: false
+        isDistinct: false  
     });
 });
 
