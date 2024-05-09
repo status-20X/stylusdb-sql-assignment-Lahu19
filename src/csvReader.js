@@ -45,4 +45,4 @@ function readCSVForHLL(filePath, bitSampleSize = 12, digestSize = 128) {
     });
 }
 
-module.exports = { readCSV, writeCSV ,readCSVForHLL};
+module.exports = { readCSV, writeCSV };

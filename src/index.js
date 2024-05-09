@@ -1,4 +1,4 @@
-const { parseSelectQuery, parseInsertQuery } = require('./queryParser');
+const { parseSelectQuery, parseInsertQuery, parseDeleteQuery } = require('./queryParser');
 const { readCSV, writeCSV } = require('./csvReader');
 
 function performInnerJoin(data, joinData, joinCondition, fields, table) {
